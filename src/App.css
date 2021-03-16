@@ -1,38 +1,293 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body,
+html {
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  background-color: #fafafa;
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+  width: 100%;
+  padding: 10px 0, 5% 0px 0, 5%;
+  background: transparent;
+  /*  Прозрачный  */
+  float: left;
+  /*  К какой части экрана прикрепить!  */
+  position: fixed;
+}
+
+header #logo {
+  color: #fff;
+  cursor: pointer;
+}
+
+header #search {
+  float: left;
+  background: transparent;
+  border: none;
+}
+
+header #search input {
+  height: 80%;
+}
+
+header #logo span {
+  font-size: 2em;
+  margin-left: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 701px) {
+  #logo {
+    float: left;
+    width: 30%;
+    /*  30% родителя? ДА!  */
+    font-size: 1.1em;
+  }
+
+  #about {
+    float: right;
+    width: 67%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media (max-width: 700px) {
+  #logo {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  #about {
+    float: left;
+    width: 100%;
+  }
+}
+
+#about {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  /* Выравнивание по центру блока своего! */
+  font-size: 1em;
+  line-height: 40px;
+}
+
+#about>a {
+  color: #fff;
+}
+
+#about:hover {
+  color: #b0b0b0;
+  text-decoration: underline;
+  /* ???? */
+}
+
+#about>a:not(:last-child) {
+  /* все а кроме последнего */
+  margin-right: 7%;
+}
+
+.fixed {
+  background: #fff;
+  z-index: 5000;
+  border-bottom: 1px solid silver;
+}
+
+header.fixed #logo {
+  color: #000
+}
+
+.fixed #about a {
+  color: #000
+}
+
+.fixed #about a:hover {
+  color: #7c7c7c;
+}
+
+.top {
+  width: 100%;
+  height: 1000px;
+  /* Фиксированное значение высоты*/
+  background-image: url('https://afishanovgorod.ru/wp-content/uploads/2020/01/kinolenta-1-scaled.jpg');
+  background-blend-mode: multiply;
+  /* Накладываем цвет на картинку */
+  background-color: #7c7c7c;
+  background-size: cover;
+  /* Покрытие картинки на весь блок, растянули */
+  text-align: center;
+  color: #fff;
+}
+
+@media (min-width: 1001px) {
+  .top {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 651px) {
+  .top {
+    font-size: 2.3em;
+  }
+}
+
+@media (max-width: 650px) {
+  .top {
+    font-size: 1.5em;
+  }
+}
+
+.top h1 {
+  padding-top: 20%;
+}
+
+#main {
+  padding: 100px 20%;
+  /* 100 - сверху снизу, 20% по бокам */
+  width: 60%;
+  /* 100% - 20% (padding) - 20% = 60% */
+  float: left;
+  background-color: #f6f6f6;
+  border-top: 2px solid silver;
+  color: #484848;
+  font-size: 1.3em;
+}
+
+#main .description {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+}
+
+#main .films {
+  float: right;
+  width: 48%;
+}
+
+.content {
+  float: left;
+  background-image: url('https://m-cond.ru/upload/iblock/883/88381a86b2ade3b3c879d7cdc8c842cd.jpg');
+  background-blend-mode: multiply;
+  /* Накладываем цвет на картинку */
+  background-color: #7c7c7c;
+  background-size: cover;
+  background-attachment: fixed;
+  /* Изображение зафиксировано при прокрутке! Паралакс эффект */
+  padding: 100px 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.content h1 {
+  font-size: 5em;
+  margin-bottom: 1em;
+}
+
+.content .film {
+  float: left;
+  width: 33%;
+  margin-bottom: 5%;
+}
+
+@media(max-width: 600px) {
+  .content .film {
+    width: 50%;
+    font-size: 0.9em;
+  }
+}
+
+.content .film img {
+  border: 5px solid white;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#search input {
+  outline: none;
+  border: none;
+}
+
+/* Contacts */
+
+#contacts {
+  width: 100%;
+  float: left;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  border-top: 4px solid silver;
+  background: #f4f4f4;
+}
+
+#form_input {
+  margin-top: 15px;
+  width: 35%;
+  margin-left: 38%;
+  font-size: 1.1em;
+}
+
+#form_input label {
+  cursor: pointer;
+  font-size: 1.4em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#form_input label span {
+  color: red;
+}
+
+#form_input input,
+#form_input textarea {
+  margin-bottom: 10px;
+  width: 70%;
+  padding: 10px 2%;
+  border-radius: 7px;
+  border: 2px solid silver;
+  font-size: 0, 9em;
+  color: #4a4a4a;
+}
+
+#form_input input:focus,
+#form_input textarea:focus {
+  border-color: black;
+}
+
+.btn {
+  float: left;
+  border-radius: 5px;
+  padding: 5px 9px;
+  font-size: 1.2em;
+  background-color: #e66450;
+  text-shadow: silver 0 0 2px;
+  cursor: pointer;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background-color: #a7493a;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Footer */
+
+footer {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-top: 4px solid silver;
+  float: left;
 }
+
