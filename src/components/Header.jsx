@@ -24,7 +24,7 @@ export default class Header extends React.Component {
         return (
             <header>
                 <div id="logo" onClick={() => this.scrollPageUp('logo')}>
-                    <span>CFinder</span>
+                    <span><i class="fas fa-search">CFinder</i></span>
                     </div>
                 <About />
             </header>

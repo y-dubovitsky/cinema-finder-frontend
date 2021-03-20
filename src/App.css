@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 * {
   margin: 0;
@@ -17,29 +17,19 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+/* header */
+
 header {
   width: 100%;
   padding: 10px 0, 5% 0px 0, 5%;
-  background: transparent;
-  /*  Прозрачный  */
-  float: left;
-  /*  К какой части экрана прикрепить!  */
+  background: transparent;   /*  Прозрачный  */
+  float: left;   /*  К какой части экрана прикрепить!  */
   position: fixed;
 }
 
 header #logo {
   color: #fff;
   cursor: pointer;
-}
-
-header #search {
-  float: left;
-  background: transparent;
-  border: none;
-}
-
-header #search input {
-  height: 80%;
 }
 
 header #logo span {
@@ -75,11 +65,13 @@ header #logo span {
   }
 }
 
+/* about */
+
 #about {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   /* Выравнивание по центру блока своего! */
-  font-size: 1em;
+  font-size: 1.5em;
   line-height: 40px;
 }
 
@@ -115,6 +107,8 @@ header.fixed #logo {
 .fixed #about a:hover {
   color: #7c7c7c;
 }
+
+/* top */
 
 .top {
   width: 100%;
@@ -152,6 +146,64 @@ header.fixed #logo {
   padding-top: 20%;
 }
 
+/* top-arrow-h1 */
+
+#top-arrow {
+  margin-right: 10px;
+  transition: margin-right 0.5s ease-in;;
+}
+
+#top-arrow.active-arrow {
+  margin-right: 50px;
+}
+
+/* top-span */
+
+#top-span {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+#top-span.active {
+  opacity: 0;
+}
+
+/* search */
+
+#search {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  margin-bottom: 10px;
+}
+
+#search.active {
+  opacity: 1;
+}
+
+#search input {
+  font-size: large;
+  width: 50%;
+  height: 50px;
+  border: none;
+}
+
+#search button {
+  height: 50px;
+  width: 10%;
+  border: none;
+  margin-left: 5px;
+}
+
+#search button:hover {
+  background-color: #e66450;
+}
+
+#search input:focus {
+  outline: none;
+}
+
+/* main */
+
 #main {
   padding: 100px 20%;
   /* 100 - сверху снизу, 20% по бокам */
@@ -175,15 +227,15 @@ header.fixed #logo {
   width: 48%;
 }
 
+/* .content */
+
 .content {
   float: left;
   background-image: url('https://m-cond.ru/upload/iblock/883/88381a86b2ade3b3c879d7cdc8c842cd.jpg');
-  background-blend-mode: multiply;
-  /* Накладываем цвет на картинку */
+  background-blend-mode: multiply;   /* Накладываем цвет на картинку */
   background-color: #7c7c7c;
   background-size: cover;
-  background-attachment: fixed;
-  /* Изображение зафиксировано при прокрутке! Паралакс эффект */
+  background-attachment: fixed;   /* Изображение зафиксировано при прокрутке! Паралакс эффект */
   padding: 100px 0;
   width: 100%;
   text-align: center;
@@ -212,11 +264,6 @@ header.fixed #logo {
   border: 5px solid white;
   max-width: 80%;
   max-height: 80%;
-}
-
-#search input {
-  outline: none;
-  border: none;
 }
 
 /* Contacts */

@@ -4,31 +4,39 @@ import Search from './Search';
 export default class Top extends React.Component {
 
     state = {
-        finder: false
+        isSearch: false,
+        intervalID: null
     }
 
-    onFinderToggle = () => {
+    componentDidMount() {
         this.setState({
-            finder: !this.state.finder
-        })
+            intervalID: setInterval(() => {
+                document.querySelector('#top-arrow').classList.toggle('active-arrow');
+            }, 500)
+        }) 
+    }
+
+    onIsSearchToggle = () => {
+        this.setState({
+            isSearch: !this.state.isSearch
+        });
+        clearInterval(this.state.intervalID);
     }
 
     render() {
 
-        const {onFindFilm} = this.props;
+        const { onFindFilm } = this.props;
 
         return (
             <div className="top">
-                <h1 onClick={() => this.onFinderToggle()}>Cinema Finder</h1>
-                {this.state.finder ?
-                    <Search onFindFilm={onFindFilm}/>
-                    :
-                    <div>
-                        <span>Just a movie and nothing more</span>
-                        <p>Fast and convenient service for finding a movie</p>
-                    </div>
-                }
-
+                <h1 onMouseEnter={() => this.onIsSearchToggle()}><i id="top-arrow" class="fas fa-arrow-right"></i>Cinema Finder</h1>
+                <div id="search" className={this.state.isSearch ? "active" : ""}>
+                    <Search onFindFilm={onFindFilm} />
+                </div>
+                <div id="top-span" className={this.state.isSearch ? "active" : ""}>
+                    <span>Just a movie and nothing more</span>
+                    <p>Fast and convenient service for finding a movie</p>
+                </div>
             </div>
         )
     }

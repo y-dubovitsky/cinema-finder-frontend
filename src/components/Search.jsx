@@ -14,11 +14,12 @@ export default class Search extends React.Component {
 
     render() {
 
-        const {onFindFilm} = this.props;
+        const { onFindFilm, active } = this.props;
+        { console.log({ active }) }
 
         return (
-            <div id="search">
-                <input onChange={this.onInputText} type="text" name="cinema" id="" placeholder="... input cinema" />
+            <div>
+                <input onChange={this.onInputText} type="text" name="cinema" placeholder="... input cinema" />
                 <button onClick={() => onFindFilm(this.state.text)}>Find</button>
             </div>
         )
