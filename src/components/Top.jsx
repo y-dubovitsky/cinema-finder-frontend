@@ -10,10 +10,14 @@ export default class Top extends React.Component {
 
     componentDidMount() {
         this.setState({
-            intervalID: setInterval(() => {
-                document.querySelector('#top-arrow').classList.toggle('active-arrow');
-            }, 500)
+            intervalID: this.startArrowAnimation()
         }) 
+    }
+
+    startArrowAnimation = () => {
+        return setInterval(() => {
+            document.querySelector('#top-arrow').classList.toggle('active-arrow');
+        }, 500)
     }
 
     onIsSearchToggle = () => {
